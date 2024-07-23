@@ -1,0 +1,793 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bebas+Neue&family=Danfo&family=Faster+One&family=Federant&family=Hanalei+Fill&family=Jaro:opsz@6..72&family=Jersey+10&family=Jersey+20&family=Jersey+25+Charted&family=Jolly+Lodger&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kaushan+Script&family=Konkhmer+Sleokchher&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+Khmer:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+Khmer:wght@100..900&family=Noto+Serif+TC:wght@200..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poetsen+One&family=Rubik+Mono+One&family=Satisfy&family=Shadows+Into+Light&family=Teko:wght@300..700&display=swap');
+
+body{
+    display: flex;
+    justify-content: center;
+    font-family: "Kanit", sans-serif;
+    margin: 0;
+}
+.phone{
+    height: 780px;  /* change from 850px */
+    width: 410px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: transparent;  
+    position: relative;  
+}
+.displayBox{
+    /* background-color: red; */
+    height: 255px;
+    width: 372px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    border-top: 1px solid #FC5A94;          
+    box-shadow: 0 4px 4px 2px rgb(0 0 0 / 25%) ;
+    box-sizing: border-box;
+    padding: 15px;
+    /* overflow: auto; */
+    white-space: normal;
+    word-wrap: break-word;
+}
+#esc{
+    width: 30px;
+    height: 30px;
+    background-color: #FC5A94;
+}
+.displayBox canvas{
+    /* background-color: red; */
+    height: 255px;
+    width: 372px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+.Screen{
+    position: absolute;
+    /* top: 37.5%;
+    right: 5%; */
+}
+#fullScreen{
+    font-size: 27px;
+    color: #FF1569;
+}
+.buttons {
+    margin-top: 13px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border-radius: 15px;
+    border-bottom: 1.5px solid #FC5A94;
+    box-shadow: 2px 4px 4px 1px rgb(0 0 0 / 25%);
+    height: 75px;
+    cursor: pointer;
+}
+.buttonLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.span{
+    font-size: 33px;
+}
+.buttonLogo p {
+    margin: 0;
+    font-size: 12px;
+}
+.container{
+    width: 370px;
+    height: 336px;
+    border-radius: 13px;
+    margin-top: 39px; 
+    border-bottom: 1px solid #FC5A94;
+    box-shadow: 0 0 3px 1px rgb(0 0 0 / 25%);
+    display: flex;
+    padding: 20px 0 0 15px;
+}
+
+/* Text_Button */
+#Text_Button{
+    display: flex;
+    flex-direction: row;
+}
+
+#inputBox{
+    height: 298px;
+    width: 169px;
+    border-radius: 15px;
+    border: 1px solid #FD92B9;
+    padding: 10px 0 10px 13px;
+    box-shadow: 1px 3px 3px 1px rgb(0 0 0 / 25%);
+    display: flex;
+    align-items: flex-start;
+    font-family: 'kanit';
+}
+
+#inputBox::placeholder{
+    text-align: start;
+    font-family: 'kanit';
+    font-size: 16px;
+}
+
+.chooseFont{
+    margin-left: 9px;
+    font-size: 20px;
+}
+
+.fontColor{
+    margin: -5px 0 17px 0;
+}
+.fontSize{
+    margin: -5px 0 17px 0;
+}
+
+#fontColor, #shadColor, #strColor, #background_Size, #background_Color, #boardframe_Color, #boardframe_Size{
+    height: 29px;
+    width: 30px;
+    margin-left: 16px;
+    border: 1px solid #FFA5C5;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#fontSize, #fontBlur, #strWidth{
+    height: 29px;
+    width: 60px;
+    margin-left: 16px;
+    padding-left: 5px;
+    border: 1px solid #FFA5C5;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#fontStyle{
+    height: 140px;
+    width: 133px;
+    border: 1px solid #FD92B9;
+    border-radius: 10px;
+    margin-top: 7px;
+    margin-left: 10px;
+    padding: 5px 0px 0 9px;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-y: scroll;
+    cursor: pointer;   
+}
+
+@font-face {
+    font-family: 'Digital_Dream';
+    src: url('digital-7.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GROSAC';
+    src: url('GROSAC Trial.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hugh';
+    src: url('Hugh.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MutantAcademyBB';
+    src: url('MutantAcademyBB.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'mexcellent';
+    src: url('mexcellent 3d.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Slugs Racer';
+    src: url('Slugs Racer.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LOTSOFDOTZ';
+    src: url('LOTSOFDOTZ.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NexaRustExtras-Free';
+    src: url('NexaRustExtras-Free.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HIGHSPEED';
+    src: url('HIGHSPEED.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.selected {
+    background-color: rgba(255, 165, 197, 0.4);
+    color: black;   
+    width: 120px;
+}
+
+#fontStyle::-webkit-scrollbar {
+    width: 8px;
+}
+  
+#fontStyle::-webkit-scrollbar-track {
+    box-shadow: inset 0 5px 10px #FFD3E3; 
+    border-radius: 10px;
+    margin:3px;
+}
+   
+#fontStyle::-webkit-scrollbar-thumb {
+    background: #FF93BA; 
+    border-radius: 10px;
+    margin: 2px;
+}
+  
+#fontStyle::-webkit-scrollbar-thumb:hover {
+    background: #FC5A94; 
+}
+
+
+/* Style Button */
+#Style_Button{
+    display: flex;
+    flex-direction: column;
+}
+.fontColorSize2{
+    margin-top: -7px;
+}
+.btn{
+    width: 100%;
+    height: 15%;
+    margin: 0px 0px 0px;
+}
+#shadowBtn, #aniBtn, #background_color {
+    width: 168px;
+    height: 41px;
+    margin-left: 7px;
+    background-color: #ff669d;
+    font-size: 20px;
+    padding: 9px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 3px 3px 0 rgb(0 0 0 / 25%);
+    color: white;
+}
+#outlineBtn, #effBtn, #boardframe{
+    width: 168px;
+    height: 41px;
+    font-size: 20px;
+    padding: 9px;
+    box-shadow: 0 3px 3px 0 rgb(0 0 0 / 25%);
+    border: 1px solid #FCC5D9;
+    background-color: white;
+    border-radius: 4px;
+}
+
+#shadowContent, #outlineContent, #aniContent, #effContent, #backgroundContent, #boardframeContent{
+    width: 343px;
+    height: 260px;
+    margin-left: 6px;
+    margin-top: 8px;
+    box-shadow: 0 3px 3px 0 rgb(0 0 0 / 25%);
+    border-radius: 10px; 
+    border-top: 1px solid #FC5A94; 
+    border-left: 1px solid #FC5A94; 
+    border-right: 1px solid #FC5A94;  
+}
+
+.shadowDirection{
+    margin-top: 15px;
+}
+.x, .y, label{
+    margin: 15px 15px 2px;
+    font-size: 20px;  
+    border-radius: 5px; 
+    width: 15% 
+}
+input{
+    border: 1px solid #FFA5C5 ;
+    margin-top: 25px;
+}
+.opacity {
+    -webkit-appearance: none;
+    width: 165px;
+    height: 4px;
+    background: #FFC7DB;
+    outline: none;
+    opacity: 0.7;
+    border: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+  
+.opacity:hover {
+    opacity: 1;
+}
+  
+.opacity::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #FC5A94;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+
+/* Background Button */
+#Background_Button{
+    display: flex;
+    flex-direction: column;
+}
+
+.background_Blur{
+    margin-top: 10px;
+}
+
+.background_Color{
+    margin-top: -10px;
+}
+
+#background_blur{
+    -webkit-appearance: none;
+    width: 100px;
+    height: 4px;
+    background: #FFC7DB;
+    outline: none;
+    opacity: 0.7;
+    border: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+#background_blur:hover {
+    opacity: 1;
+}
+  
+#background_blur::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #FC5A94;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.patern{
+    margin-top: 13px;
+
+}
+
+.patern_img{
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+    padding-left: 15px;
+    margin-right: 10px;
+}
+
+.patern_img img {
+    width: 120px;
+    height: 90px;
+    margin: 4px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.patern_img::-webkit-scrollbar {
+    height: 6px;
+}
+
+.patern_img::-webkit-scrollbar-track {
+    box-shadow: inset 0 5px 10px #FFD3E3;
+    border-radius: 10px;
+    margin: 3px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+.patern_img::-webkit-scrollbar-thumb {
+    background: #FF93BA;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+
+
+/* Animation Button*/
+
+#Animation_Button{
+    display: flex;
+    flex-direction: column;
+}
+
+.outputT{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bubbles{
+    position: relative;
+    display: flex;
+}
+
+.bubbles span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background:#ffffff;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #ffffff,
+                0 0 50px #ffffff, 
+                0 0 100px #ffffff;
+    animation: animate 4s linear infinite;
+    animation-duration: calc(50s / var(--i));
+}
+
+.bubbles span:nth-child(even){
+    background: rgb(128, 215, 252);
+    box-shadow: 0 0 0 10px rgb(119, 221, 255),
+                0 0 50px rgb(173, 255, 232),
+                0 0 100px rgb(255, 255, 255);
+
+}
+
+@keyframes animate{
+    0% {transform: translateY(100vh) scale(0);}
+    100% {transform: translateY(-100vh) scale(1);}
+}
+
+@keyframes blink {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+#effOps .op00:hover{
+    cursor: pointer;
+    color: white;
+    background-color: #FC5A94;
+}
+
+#effOps::-webkit-scrollbar {
+    width: 8px;
+}
+
+#effOps::-webkit-scrollbar-track {
+    box-shadow: inset 0 5px 10px #FFD3E3; 
+    border-radius: 10px;
+    margin:3px;
+}
+
+#effOps::-webkit-scrollbar-thumb {
+    background: #FF93BA; 
+    border-radius: 10px;
+    margin: 2px;
+}
+
+#effOps::-webkit-scrollbar-thumb:hover {
+    background: #FC5A94; 
+}
+
+
+#aniOps, #effOps{
+    height:200px;
+    /* background-color: yellow; */
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-top: solid 1px #FCC5D9;
+    border-bottom: solid 1px #FCC5D9;
+}
+
+#aniani{
+    display: flex;
+    flex-direction: row;
+    /* background-color: aqua; */
+    margin-right: px;
+    padding: 0px;
+    align-items: center;
+}
+
+.aniDuration{
+    font-size: 14px;
+}
+
+#aniDur{
+    /* background-color: red; */
+    margin:0px;
+    margin-left: 5px;
+    
+    padding-inline: 5px;
+    height: 15px;
+    width: 50px;
+    border-radius: 10px;
+}
+
+#aniOps::-webkit-scrollbar {
+    width: 8px;
+}
+
+#aniOps::-webkit-scrollbar-track {
+    box-shadow: inset 0 5px 10px #FFD3E3; 
+    border-radius: 10px;
+    margin:3px;
+}
+
+#aniOps::-webkit-scrollbar-thumb {
+    background: #FF93BA; 
+    border-radius: 10px;
+    margin: 2px;
+}
+
+#aniOps::-webkit-scrollbar-thumb:hover {
+    background: #FC5A94; 
+}
+
+.op00, #effOps .op00{
+    width: 75px;
+    height: 70px;
+    background-color: white;
+    margin-right: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: solid 1px #FF93BA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.op00:hover{
+    cursor: pointer;
+    color:white;
+    background-color: #FC5A94;
+}
+
+.aniSettings{
+    display: flex;
+    flex-direction: row;
+    /* background-color: red; */
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 5px;
+    justify-content: space-between;
+}
+
+.noneOption{
+    width: 100%;
+    height: 86px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 86px;
+    border:1px solid #FF1569;
+    cursor: pointer;
+    border-radius: 9px;
+    margin-top: 7px;
+}
+
+
+@media only screen and (min-width: 1100px){
+
+    body{
+        display: flex;
+        justify-content: none;
+    }
+    .phone{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        justify-content: center;
+        width: 1270px;      /* 1920px */
+        height: 750px;     /* 1200px */
+        border: 1px solid burlywood;
+        /* background-color: #FC5A94; */
+    }
+
+    .displayBox{
+        width: 54%;   
+        height: 71.83%;     
+        position: absolute;
+        background: none;
+        box-shadow: none;
+        left: 20%;
+        top: 0%;
+        border: 1.5px solid #FC5A94;
+        /* background-color: #FC5A94; */
+    }
+
+    .displayBox canvas{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: none;
+        box-shadow: none;
+        left: 20%;
+        top: 0%;
+        /* background-color: #FC5A94; */
+    }
+
+    .container{
+        width: 28%;
+        height: 87%;          /*71.83% */
+        position: absolute;
+        left: 7%;
+        top: -5%;       /* 14% */
+        box-shadow: none;
+        border-bottom: none;
+        border: 1.5px solid #FC5A94;
+        border-right: 1.5px solid #FC5A94;
+        padding-right: 30px;
+        /* background-color: #FCC5D9; */
+    }
+    
+    .buttons{
+        width: 31.5%;
+        position: absolute;
+        left: 7%;
+        top: 88%;           /*77% */
+        box-shadow: none;
+    }
+
+    .Screen{
+        display: flex;
+        position: absolute;
+        left: 95%;          /* 36% */
+        top: 90%;      
+        /* background-color: #FC5A94; */
+    }
+
+    #Text_Button{
+        display: flex;
+        flex-direction: column;
+    }
+    #inputBox{
+        height: 55.38%;
+        width: 95%;            /* 23vw */
+        margin: 14px 0 10px S;
+        box-shadow: none;
+        padding: 20px 0 0 30px;
+        font-size: 24px;
+    }
+
+    #inputBox::placeholder{
+        font-size: 24px;
+    }
+
+    .chooseFont{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .fontColor{
+        position: absolute;
+        left: 9%;
+        top: 69%;
+    }
+
+    .fontSize{
+        position: absolute;
+        left: 9%;
+        top: 82%;
+    }
+
+    .fontStyle{
+        position: absolute;
+        right: 13%;
+        top: 67%;
+    }
+
+    .span{
+        font-size: 33px;
+    }
+    
+    .buttonLogo p {
+        margin: 0;
+        font-size: 12px;
+    }
+    
+    #shadowBtn, #aniBtn, #background_color {
+        width: 45.4%;
+        height: 6%;
+        box-shadow: 0 2px 2px 0 rgb(0 0 0 / 25%);
+        position: absolute;
+        right: 5%;
+    }
+    #outlineBtn, #effBtn, #boardframe{
+        width: 45.4%;
+        height: 6%;
+        font-size: 20px;
+        box-shadow: 0 2px 2px 0 rgb(0 0 0 / 25%);
+        outline: none;
+        position: absolute;
+        top: 52%
+    }
+    
+    #outlineContent, #effContent, #boardframeContent{
+        width: 91%;
+        height: 36%;
+        box-shadow: 0 2.5px 2.5px 0 rgb(0 0 0 / 25%);
+        position: absolute;
+        top: 59%;
+    }
+
+    #shadowContent, #aniContent, #backgroundContent{
+        width: 91.5%;
+        height: 38%;        /* 36% */
+        box-shadow: 0 2.5px 2.5px 0 rgb(0 0 0 / 25%);
+        position: absolute;
+        top: 10%;
+    }
+
+    .boardframe_size{
+        position: absolute;
+        right: 10%;
+        top: 0;
+    }
+
+    .background_Blur{
+        position: absolute;
+        right: 10%;
+        top: 0%;
+    }
+}
+
+
+@media screen and (min-width: 700px) and (max-width: 900px){
+    .container, .buttons, .Screen{
+        display: none;
+    }
+
+    .phone{
+        width: 780px;
+        height: 410px;
+    }
+
+    .displayBox, .displayBox canvas{
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0px;
+        border-top: 0px;          
+        box-shadow: none;
+        box-sizing: border-box;
+        padding: 0px;
+        margin : 0px;
+        overflow: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+}

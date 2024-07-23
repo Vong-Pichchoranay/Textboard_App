@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="phone">
+
+        <div class="displayBox" style="position: relative;">
+            <canvas id="layer1" style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>   <!-- text -->
+            <canvas id="layer2" style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>   <!-- bg -->
+            <canvas id="layer3" style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>   <!-- effects -->
+            <canvas id="escButton" style="position: absolute; left: 0; top: 0; z-index: 2;  "></canvas>
+        </div>
+
+        <div class="Screen" hidden>
+            <i class="bx bx-fullscreen" id="fullScreen" ></i>
+        </div>
+
+        <div class="ExitScreen" hidden>
+            <img id="exitIcon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAjElEQVRYR+2VUQrAIAxD9f6H3hAc+LEuaUVoR/w10+yltr0lWz2ZnyZDKBEROkHoWg61CDOaV2+RyJjLGI0MPQRcKbjE8wYmDkZTP7L1L63Xyrwy17dfkcnQQBkpatRst/ZlCOEToV8RUh9CfSgdIav+mEnOaOpPexFCRS1CUUKo+2/ta7gifCJUjtANkm0kJfUZ70oAAAAASUVORK5CYII="/>
+        </div>
+        
+        <div class="responsiveBox">
+
+            <div class="container">
+
+                <!-- PAGE01: TEXT -->
+                <div id="Text_Button" class="contentSection" >
+                    <textarea type="text" id="inputBox" placeholder="Input your text..."></textarea>
+                
+                    <div class="chooseFont">
+                        <div class="fontColor">
+                            <label for="fontColor">Color</label>
+                            <input type="color" id="fontColor" ></br>
+                        </div>
+                        <div class="fontSize">
+                            <label for="fontSize">Size</label>
+                            <input type="number" id="fontSize" min="10" max="300" value="24"></br>
+                        </div>
+                        <div class="fontStyle">
+                            <label for="fontStyle">Font-Style</label>
+                            <div id="fontStyle">
+                                <div class="fontOption" style="font-family: 'Kaushan Script';" onclick="setFontStyle('Kaushan Script', this)">Kaushan Script</div>
+                                <div class="fontOption" style="font-family: 'Jolly Lodger', system-ui;" onclick="setFontStyle('Jolly Lodger', this)">Fredran</div>
+                                <div class="fontOption" style="font-family: 'Faster One', system-ui;" onclick="setFontStyle('Faster One', this)">Faster One</div>
+                                <div class="fontOption" style="font-family: 'Hanalei Fill', system-ui;" onclick="setFontStyle('Hanalei Fill', this)">Hanalei Fill</div>
+                                <div class="fontOption" style="font-family: 'Kanit';" onclick="setFontStyle('Kanit', this)">Kanit</div>
+                                <div class="fontOption" style="font-family: 'Danfo', serif;" onclick="setFontStyle('Danfo', this)">Danfo</div>
+                                <div class="fontOption" style="font-family: 'Noto Serif TC', serif;" onclick="setFontStyle('Noto Serif TC', this)">Noto Serif TC</div>
+                                <div class="fontOption" style="font-family: 'Noto Sans Khmer', serif;" onclick="setFontStyle('Noto Serif Khmer', this)">Noto Khmer</div>
+                                <div class="fontOption" style="font-family: 'Konkhmer Sleokchher', system-ui;" onclick="setFontStyle('Konkhmer Sleokchher', this)">Sleokchher</div>
+                                <div class="fontOption" style="font-family: 'Noto Sans Khmer', sans-serif;" onclick="setFontStyle('Noto Sans Khmer', this)">Sans Khmer</div>
+                                <div class="fontOption" style="font-family: 'Arial', cursive;" onclick="setFontStyle('Arial', this)">Arial</div>
+                                <div class="fontOption" style="font-family: 'Satisfy', cursive;" onclick="setFontStyle('Satisfy', this)">Satisfy</div>
+                                <div class="fontOption" style="font-family: 'Shadows Into Light', cursive;" onclick="setFontStyle('Shadows Into Light', this)">Shadows Light</div>
+                                <div class="fontOption" style="font-family: 'Teko', sans-serif;" onclick="setFontStyle('Teko', this)">Teko</div>
+                                <div class="fontOption" style="font-family: 'Jaro', sans-serif;" onclick="setFontStyle('Jaro', this)">Jaro</div>
+                                <div class="fontOption" style="font-family: 'Noto Sans SC', sans-serif;" onclick="setFontStyle('Noto Sans SC', this)">Noto Sans SC</div>
+                                <div class="fontOption" style="font-family: 'Bebas Neue', sans-serif;" onclick="setFontStyle('Bebas Neue', this)">Bebas Neue</div>
+                                <div class="fontOption" style="font-family: 'Noto Sans TC', sans-serif;" onclick="setFontStyle('Noto Sans TC', this)">Noto Sans TC</div>
+                                <div class="fontOption" style="font-family: 'Noto Sans KR', sans-serif;" onclick="setFontStyle('Noto Sans KR', this)">Noto Sans KR</div>
+                                <div class="fontOption" style="font-family: 'Playfair Display', serif;" onclick="setFontStyle('Playfair Display', this)">Playfair Display</div>
+                                <div class="fontOption" style="font-family: 'Oswald', sans-serif;" onclick="setFontStyle('Oswald', this)">Oswald</div>
+                                <div class="fontOption" style="font-family: 'Poetsen One', sans-serif;" onclick="setFontStyle('Poetsen One', this)">Poetsen One</div>
+                                <div class="fontOption" style="font-family: 'Acme', sans-serif;" onclick="setFontStyle('Acme', this)">Acme</div>
+                                <div class="fontOption" style="font-family: 'Rubik Mono One', monospace;" onclick="setFontStyle('Rubik Mono One', this)">Rubik</div>
+                                <div class="fontOption" style="font-family: 'Digital_Dream';" onclick="setFontStyle('Digital_Dream', this)">Digital-7</div>
+                                <div class="fontOption" style="font-family: 'GROSAC';" onclick="setFontStyle('GROSAC', this)">GROSAC</div>                      
+                                <div class="fontOption" style="font-family: 'Hugh';" onclick="setFontStyle('Hugh', this)">Hugh</div>
+                                <div class="fontOption" style="font-family: 'MutantAcademyBB';" onclick="setFontStyle('MutantAcademyBB', this)">Mutant</div>
+                                <div class="fontOption" style="font-family: 'mexcellent';" onclick="setFontStyle('mexcellent', this)">mexcellent</div>
+                                <div class="fontOption" style="font-family: 'LOTSOFDOTZ';" onclick="setFontStyle('LOTSOFDOTZ', this)">LOTS</div>
+                                <div class="fontOption" style="font-family: 'Slugs Racer';" onclick="setFontStyle('Slugs Racer', this)">Racer</div>
+                                <div class="fontOption" style="font-family: 'NexaRustExtras-Free';" onclick="setFontStyle('NexaRustExtras-Free', this)">NexaRust</div>
+                                <div class="fontOption" style="font-family: 'HIGHSPEED';" onclick="setFontStyle('HIGHSPEED', this)">HIGHSPEED</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGE02: STYLE-->
+                <div id="Style_Button" class="contentSection" style="display: none;">
+                    <div class="btn">
+                        <button id="shadowBtn" type="button">Shadow</button>
+                        <button  id="outlineBtn" type="button">Outline</button>
+                    </div>
+
+                    <!-- SHADOW SETTINGS -->
+                    <div id="shadowContent"> 
+                        <div class="fontColorSize2">
+                            <label for="shadColor">Color</label>
+                            <input type="color" id="shadColor"></br>
+                        </div>
+                        <div class="fontColorSize2">
+                            <label for="fontBlur">Blur</label>
+                            <input type="number" id="fontBlur" value="0"></br>
+                        </div>
+                        
+                        <div class="shadowDirection">
+                            <label for="text">Shadow Direction</label>
+                            <div>
+                                <label for="text">X</label>
+                                <input type="number"class="x" value="0">
+                                <label for="text">Y</label>
+                                <input type="number" class="y" value="0">
+                            </div>
+                        </div>
+        
+                        <div>
+                            <label for="shadOpac">Opacity</label>
+                            <input type="range" id="shadOpac" min="0" max="100" value="100" class="opacity" required>
+                        </div>
+                    </div>
+
+                    <!-- OUTLINE SETTINGS  -->
+                    <div id="outlineContent" hidden>  
+                        <div class="fontColorSize">
+                            <label for="strColor">Color</label>
+                            <input type="color" id="strColor"></br>
+                        </div>
+                        <div class="fontColorSize">
+                            <label for="strWidth">Size</label>
+                            <input type="number" id="strWidth"></br>
+                        </div>
+                        <div>
+                            <label for="range">Opacity</label>
+                            <input type="range" id="range" min="0" max="100" value="50" class="opacity" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGE03: BG -->
+                <div id="Background_Button" class="contentSection" style="display: none;">
+                    <div class="btn">
+                        <button id="background_color" type="button">Background</button>
+                        <button  id="boardframe" type="button">Boardframe</button>
+                    </div>
+
+                    <!-- BACKGROUND SETTINGS -->
+                    <div id="backgroundContent"> 
+                        <div style="display: flex;">
+                            <div class="background_Color">
+                                <label for="background_Color">Color</label>
+                                <input type="color" id="background_Color" value="#FEE5EE">
+                            </div>
+
+                            <div class="background_Blur">
+                                <label for="background_Blur" style="margin-left: 40px;">Blur</label>
+                                <input type="range" min="0" max="100" value="0" id="background_blur">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="background_Opacity">Opacity</label>
+                            <input type="range" min="0" max="100" value="100" class="opacity" id="bg_opacity">                                      
+                        </div>
+
+                        <div class="patern">
+                            <label for="patern" >Pattern</label>
+                            <div class="patern_img">
+                                <div class="noneOption" onclick="choosePattern(null)">
+                                    <span class="material-symbols-outlined" style="color: #FF1569; margin-left: 15px; margin-right: 15px;">motion_photos_off</span>
+                                </div>
+                                <img src="https://i.pinimg.com/564x/20/e4/f0/20e4f00b415df4e2211d63ec9b16099d.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/20/e4/f0/20e4f00b415df4e2211d63ec9b16099d.jpg')">
+                                <img src="https://i.pinimg.com/564x/c3/77/95/c37795a91290ffdc5095895111d2871d.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/c3/77/95/c37795a91290ffdc5095895111d2871d.jpg')">
+                                <img src="https://i.pinimg.com/564x/2a/3f/04/2a3f04c1e3413bb2b7057bcb8916a176.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/2a/3f/04/2a3f04c1e3413bb2b7057bcb8916a176.jpg')">
+                                <img src="https://i.pinimg.com/564x/aa/2a/cd/aa2acdf2d0eddd301d25c4b681221f04.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/aa/2a/cd/aa2acdf2d0eddd301d25c4b681221f04.jpg')">
+                                <img src="https://i.pinimg.com/564x/d9/f6/e3/d9f6e3fdc38192482a95a2fdfd773c4a.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/d9/f6/e3/d9f6e3fdc38192482a95a2fdfd773c4a.jpg')">
+                                <img src="https://i.pinimg.com/564x/51/10/35/511035c494d69184c2a1262f674f6005.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/51/10/35/511035c494d69184c2a1262f674f6005.jpg')">
+                                <img src="https://i.pinimg.com/564x/6a/00/41/6a0041d0e1d980a8b0a9d2dd0cacb2c1.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/6a/00/41/6a0041d0e1d980a8b0a9d2dd0cacb2c1.jpg')">
+                                <img src="https://i.pinimg.com/564x/a3/f2/d3/a3f2d32123689efe05ab50c870300185.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/a3/f2/d3/a3f2d32123689efe05ab50c870300185.jpg')">
+                                <img src="https://i.pinimg.com/564x/b3/07/c0/b307c092962c6a4d73cba7226401a1b6.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/b3/07/c0/b307c092962c6a4d73cba7226401a1b6.jpg')">
+                                <img src="https://i.pinimg.com/564x/b5/01/3b/b5013bdac77eb078ab87b1b4a0989dc1.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/b5/01/3b/b5013bdac77eb078ab87b1b4a0989dc1.jpg')">
+                                <img src="https://i.pinimg.com/564x/8e/a5/3a/8ea53ad02e66cc60ec4240478ed4c9cb.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/8e/a5/3a/8ea53ad02e66cc60ec4240478ed4c9cb.jpg')">
+                                <img src="https://i.pinimg.com/564x/df/48/2f/df482f014ad42c943f2f72967d2ff310.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/df/48/2f/df482f014ad42c943f2f72967d2ff310.jpg')">
+                                <img src="https://i.pinimg.com/564x/97/57/14/975714bb993d2b3e9e3d9bbdc6c02990.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/97/57/14/975714bb993d2b3e9e3d9bbdc6c02990.jpg')">
+                                <img src="https://i.pinimg.com/564x/b7/d6/ce/b7d6ce72c540d2a49e37e56b2ebd3886.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/b7/d6/ce/b7d6ce72c540d2a49e37e56b2ebd3886.jpg')">
+                                <img src="https://i.pinimg.com/564x/50/9c/a0/509ca06b6fb6be457bf45736887e7e35.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/50/9c/a0/509ca06b6fb6be457bf45736887e7e35.jpg')">
+                                <img src="https://i.pinimg.com/564x/0b/8a/07/0b8a07d1421fe08e9c97bf20091b1f3b.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/0b/8a/07/0b8a07d1421fe08e9c97bf20091b1f3b.jpg')">
+                                <img src="https://i.pinimg.com/564x/69/93/60/6993600e4b85bfdd72cc43501b5b191e.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/69/93/60/6993600e4b85bfdd72cc43501b5b191e.jpg')">
+                                <img src="https://i.pinimg.com/564x/86/db/0b/86db0b6ed13db5a13632327860cf2c5e.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/86/db/0b/86db0b6ed13db5a13632327860cf2c5e.jpg')">
+                                <img src="https://i.pinimg.com/564x/40/99/9f/40999f5512b1e8571d30744b6573952b.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/40/99/9f/40999f5512b1e8571d30744b6573952b.jpg')">
+                                <img src="https://i.pinimg.com/564x/19/21/15/19211570a080a75a076e2b976b0352d2.jpg" alt="" id="patternOption" onclick="choosePattern('https://i.pinimg.com/564x/19/21/15/19211570a080a75a076e2b976b0352d2.jpg')">
+                                <!-- <img src="" alt="" id="patternOption" onclick="choosePattern('')"> -->
+                            </div>
+                        </div>                     
+                    </div>
+
+                    <!-- BOARDFRAME SETTINGS -->
+                    <div id="boardframeContent" hidden> 
+                        <div style="display: flex;">
+                            <div>
+                                <label for="boardframe_Color">Color</label>
+                                <input type="color" id="boardframe_Color" value="#FEE5EE">
+                            </div>
+
+                            <div class="boardframe_size">
+                                <label for="background_Size" style="margin-left: 70px;">Size</label>
+                                <input type="number" id="boardframe_Size" value="5">
+                            </div>
+                        </div>
+
+                        <div class="boardframe_blur">
+                            <label for="boardframe_blur">Blur</label>
+                            <input type="range" min="0" max="100" value="0" class="opacity" id="boardframe_blur">                                      
+                        </div>
+
+                        <div class="patern">
+                            <label for="patern" >Pattern</label>
+                            <div class="patern_img">
+                                <div class="noneOption" onclick="patternBorder(null)">
+                                    <span class="material-symbols-outlined" style="color: #FF1569; margin-left: 15px; margin-right: 15px;">motion_photos_off</span>
+                                </div>
+                                <img src="https://i.pinimg.com/564x/20/e4/f0/20e4f00b415df4e2211d63ec9b16099d.jpg" alt="" id="patternOption" onclick="patternBorder('https://i.pinimg.com/564x/20/e4/f0/20e4f00b415df4e2211d63ec9b16099d.jpg')">
+                                <img src="https://i.pinimg.com/564x/1c/7f/6d/1c7f6d09c8c20a0d7c02eca0c6f9a8e8.jpg" alt="" id="patternOption" onclick="patternBorder('https://i.pinimg.com/564x/1c/7f/6d/1c7f6d09c8c20a0d7c02eca0c6f9a8e8.jpg')">
+                                <img src="https://i.pinimg.com/564x/3e/cc/b6/3eccb654d27c6995c44cb0bd176cc58e.jpg" alt="" id="patternOption" onclick="patternBorder('https://i.pinimg.com/564x/3e/cc/b6/3eccb654d27c6995c44cb0bd176cc58e.jpg')">
+                                <img src="https://i.pinimg.com/564x/6f/3a/99/6f3a99a71953a270deaf05b9c3c4e043.jpg" alt="" id="patternOption" onclick="patternBorder('https://i.pinimg.com/564x/6f/3a/99/6f3a99a71953a270deaf05b9c3c4e043.jpg')">
+                                <img src="https://i.pinimg.com/564x/8f/1d/2a/8f1d2aa2579d734cc46bc688b819777f.jpg" alt="" id="patternOption" onclick="patternBorder('https://i.pinimg.com/564x/8f/1d/2a/8f1d2aa2579d734cc46bc688b819777f.jpg')">
+                                <img src="https://i.pinimg.com/564x/c3/3f/c2/c33fc2a892a9acad071427504ea8785b.jpg" alt="" id="patternOption" onclick="patternBorder('https://i.pinimg.com/564x/c3/3f/c2/c33fc2a892a9acad071427504ea8785b.jpg')">
+                                <img src="https://i.pinimg.com/564x/ce/69/45/ce694507ea49662acb73aef89155c7b3.jpg" alt="" id="patternOption" onclick="patternBorder('https://i.pinimg.com/564x/ce/69/45/ce694507ea49662acb73aef89155c7b3.jpg')">
+                                <img src="https://i.pinimg.com/564x/c4/3f/21/c43f2134c3607e78eaf2a6b605cf4289.jpg" alt="" id="patternOption" onclick="patternBorder('https://i.pinimg.com/564x/c4/3f/21/c43f2134c3607e78eaf2a6b605cf4289.jpg')">
+                                <img src="https://i.pinimg.com/564x/e1/80/fb/e180fbe47d794d4090bc0ee5e47cb83a.jpg" alt="" id="patternOption" onclick="patternBorder('https://i.pinimg.com/564x/e1/80/fb/e180fbe47d794d4090bc0ee5e47cb83a.jpg')">
+                            </div>
+                        </div>                     
+                    </div>
+                </div>
+
+                <!-- PAGE04: ANIMATE -->
+                <div id="Animation_Button" class="contentSection" style="display: none;">
+                    <div class="btn">
+                        <button id="aniBtn" type="button">Animation</button>
+                        <button  id="effBtn" type="button">Effects</button>
+                    </div>
+
+                    <!-- animation -->
+                    <div id="aniContent"> 
+                        <div id="aniOps">
+                            <div class="op00">None</div>
+                            <div class="op00">Loop</div>
+                            <div class="op00">Blink</div>
+                            <div class="op00">Slide</div>
+                            <div class="op00">Rise</div>
+                            <div class="op00">Jogging</div>
+                            <div class="op00"></div>
+                            <div class="op00"></div>
+                            <div class="op00"></div>
+                            <div class="op00"></div>
+                            <div class="op00"></div>
+                            <div class="op00"></div>
+                        </div>
+                        <div class="aniSettings">
+                            <div id="aniani">
+                                <div class="aniDuration">Speed</div>
+                                <input type="number" id="aniDur" value="0.25" step="0.25">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- effects -->
+                    <div id="effContent" hidden>
+                        <div id="effOps">
+                            <div class="op00" id="noEffects">None</div>
+                            <div class="op00" id="colorful">Colorful</div>
+                            <div class="op00" id="newfire">Newfire</div>
+                            <div class="op00" id="snow">Snow</div>
+                            <div class="op00" id="rain">Rain</div>
+                            <div class="op00" id="butterfly">Butterfly</div>  
+                            <div class="op00" id="disco">Disco</div>               
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <div class="buttonLogo" onclick="showContent('Text_Button')">
+                    <i class="bx bx-text" id="text" style="font-size:33px;"></i>
+                    <p class="text">Text</p>
+                </div>
+                <div class="buttonLogo" onclick="showContent('Style_Button')">
+                    <span class="material-symbols-outlined" style="font-size:33px;">tune</span>
+                    <p class="style">Style</p>
+                </div>
+                <div class="buttonLogo" onclick="showContent('Background_Button')">
+                    <span class="material-symbols-outlined" style="font-size:33px;">colors</span>
+                    <p class="background">Background</p>
+                </div>
+                <div class="buttonLogo" onclick="showContent('Animation_Button')">
+                    <span class="material-symbols-outlined" style="font-size:33px;">animation</span>
+                    <p class="animation">Animation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="function.js"></script>
+</body>
+</html>
